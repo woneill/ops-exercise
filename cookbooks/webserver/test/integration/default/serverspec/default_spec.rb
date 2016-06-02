@@ -17,7 +17,7 @@ describe 'HHVM installed' do
 
   it 'php has HHVM enabled' do
     expect(command('/usr/bin/php --version').stdout).to match(/HHVM/)
-    expect(command('curl --head http://localhost/dummy.php').stdout).to
-    match(/X-Powered-By: HHVM/)
+    # rubocop:disable Metrics/LineLength
+    expect(command('curl --head http://localhost/dummy.php').stdout).to match(/X-Powered-By: HHVM/)
   end
 end

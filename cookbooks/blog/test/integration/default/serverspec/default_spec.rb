@@ -6,12 +6,11 @@ describe 'blog site' do
   end
 
   it 'returns the wordpress setup page' do
-    expect(command('curl http://localhost/wp-admin/install.php').stdout).to
-    match(/WordPress.*Installation/)
+    # rubocop:disable Metrics/LineLength
+    expect(command('curl http://localhost/wp-admin/install.php').stdout).to match(/WordPress.*Installation/)
   end
 
   it 'is using HHVM' do
-    expect(command('curl --head http://localhost/wp-admin/install.php').stdout).to
-    match(/X-Powered-By: HHVM/)
+    expect(command('curl --head http://localhost/wp-admin/install.php').stdout).to match(/X-Powered-By: HHVM/)
   end
 end
