@@ -9,10 +9,12 @@ namespace :style do
   RuboCop::RakeTask.new(:ruby)
 
   desc 'Run Chef style checks'
-  FoodCritic::Rake::LintTask.new(:chef) do |t|
-    t.options = {
-      fail_tags: ['any']
-    }
+  Dir.chdir('cookbooks') do
+    FoodCritic::Rake::LintTask.new(:chef) do |t|
+      t.options = {
+        fail_tags: ['any']
+      }
+    end
   end
 end
 
@@ -21,9 +23,13 @@ task style: ['style:ruby', 'style:chef']
 
 desc 'Run Test Kitchen'
 task :integration do
-  Kitchen.logger = Kitchen.default_file_logger
-  Kitchen::Config.new.instances.each do |instance|
-    instance.test(:always)
+  Dir.glob('cookbooks/*') do |cookbook|
+    Dir.chdir(cookbook) do
+      Kitchen.logger = Kitchen.default_file_logger
+      Kitchen::Config.new.instances.each do |instance|
+        instance.test(:always)
+      end
+    end
   end
 end
 

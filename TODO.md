@@ -15,6 +15,7 @@
   - Implemented functional tests via TestKitchen
   - The vagrant build does ServerSpec testing as a provisioning step
   - Purposely skipped unit tests since they're mostly repeating what's already in the code itself
+  - Rakefile has tasks to run Rubocop and Foodcritic
 - [x] Think in terms of re-usable components.
   - Seperated webserver from wordpress install. Could expand to make webserver cookbook flexible enough to generate site stubs instead of just disabling the default site
 - [x] Bonus points for a rake/Thor file for common tasks.
