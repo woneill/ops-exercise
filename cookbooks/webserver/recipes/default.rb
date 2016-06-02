@@ -7,7 +7,8 @@
 include_recipe 'hhvm'
 
 service 'hhvm' do
-  supports status => true
+  # rubocop:disable Style/HashSyntax
+  supports :status => true
   action [:enable, :start]
 end
 
