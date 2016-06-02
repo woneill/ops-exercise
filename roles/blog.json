@@ -1,6 +1,6 @@
 {
-    "name": "example",
-    "description": "This is an example role defined as JSON",
+    "name": "blog",
+    "description": "This is a blog role defined as JSON",
     "chef_type": "role",
     "json_class": "Chef::Role",
     "default_attributes": {
@@ -8,6 +8,6 @@
     "override_attributes": {
     },
     "run_list": [
-        "recipe[example]"
+        "recipe[blog]"
     ]
 }
