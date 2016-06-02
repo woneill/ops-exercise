@@ -10,10 +10,11 @@ include_recipe 'wordpress::app'
 template "#{node['nginx']['dir']}/sites-enabled/wordpress.conf" do
   source 'nginx.conf.erb'
   variables(
-    docroot          => node['wordpress']['dir'],
-    server_name      => node['wordpress']['server_name'],
-    server_aliases   => node['wordpress']['server_aliases'],
-    server_port      => node['wordpress']['server_port']
+    # rubocop:disable Style/HashSyntax
+    :docroot          => node['wordpress']['dir'],
+    :server_name      => node['wordpress']['server_name'],
+    :server_aliases   => node['wordpress']['server_aliases'],
+    :server_port      => node['wordpress']['server_port']
   )
   action :create
   notifies :reload, 'service[nginx]'
