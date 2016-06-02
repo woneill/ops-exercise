@@ -15,8 +15,6 @@
   - Implemented functional tests via TestKitchen
   - The vagrant build does ServerSpec testing as a provisioning step
   - Purposely skipped unit tests since they're mostly repeating what's already in the code itself
-  - Ran out of time to implement lint tests. Need to figure out how to get ChefDK gem paths into rake.
 - [x] Think in terms of re-usable components.
   - Seperated webserver from wordpress install. Could expand to make webserver cookbook flexible enough to generate site stubs instead of just disabling the default site
-- [ ] Bonus points for a rake/Thor file for common tasks.
-  - Need to figure out how to get ChefDK gem paths into rake
+- [x] Bonus points for a rake/Thor file for common tasks.
